@@ -26,12 +26,12 @@ jobs:
       - name: Build frontend image
         run: |
           docker build \
-            -t gpyo0111/mzc-frontend:final \
+            -t gpyo0111/mzc-frontend:${{ github.sha }} \
             ./frontend
 
       - name: Push frontend image
         run: |
-          docker push gpyo0111/mzc-frontend:final
+          docker push gpyo0111/mzc-frontend:${{ github.sha }}
 
   deploy:
     needs: build-and-push
@@ -44,7 +44,7 @@ jobs:
       - name: Update frontend deployment image
         run: |
           kubectl set image deployment/mzc-frontend \
-            frontend=gpyo0111/mzc-frontend:final -n mzc
+            frontend=gpyo0111/mzc-frontend:${{ github.sha }} -n mzc
 
       - name: Verify rollout
         run: |
