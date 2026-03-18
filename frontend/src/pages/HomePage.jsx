@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const teamMembers = ['노예림', '백유안', 'Suh, Gipyo', '유승호', '최재우'];
+const teamMembers = ['노예림', '백유안', '서기표', '유승호', '최재우'];
 
 const menuNotes = [
   'MZC에서는 엄선된 식재, 최상의 테크닉을 다양한 방식으로 즐길 수 있도록 구성한 코스 요리를 제공합니다.',
